@@ -20,7 +20,7 @@ public class UpdateQuantityDB {
             ResultSet resultSet = selectStatement.executeQuery();
             int currentQuantity = 0;
             while (resultSet.next()) {
-                resultSet.getInt("quantity");
+                currentQuantity = resultSet.getInt("quantity");
             }
             resultSet.close();
             selectStatement.close();
