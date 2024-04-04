@@ -20,10 +20,10 @@ public class UpdateQuantityGUI {
 
     public static void updateDialogue() {
 
+        Connection connection = DatabaseConnection.getConnection();
         productID = JOptionPane.showInputDialog("Enter The Product ID : ");
         quantityToBeAdded = JOptionPane.showInputDialog("Enter The New Quantity : ");
         quantity = Integer.parseInt(quantityToBeAdded);
-        Connection connection = DatabaseConnection.getConnection();
         UpdateQuantityDB.updateQuantityDB(connection, productID, quantity);
     }
 }
