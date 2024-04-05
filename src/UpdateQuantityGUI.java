@@ -11,6 +11,7 @@ public class UpdateQuantityGUI {
     static String quantityToBeAdded;
 
     static int quantity;
+    static boolean addToExisting;
 
     public static void main(String[] args) {
         updateDialogue();
@@ -23,19 +24,18 @@ public class UpdateQuantityGUI {
             productID = JOptionPane.showInputDialog("Enter The Product ID : ");
             quantityToBeAdded = JOptionPane.showInputDialog("Enter The New Quantity : ");
 
-            // Handle invalid input
+            
             try {
                 quantity = Integer.parseInt(quantityToBeAdded);
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Quantity should be a numeric value.");
-                return; // Exit the method if the quantity is not numeric
+                return; 
             }
+            int option = JOptionPane.showConfirmDialog(null, "Do you want to add to the existing quantity?",
+                    "Choose an Option", JOptionPane.YES_NO_OPTION);
+            addToExisting = (option == JOptionPane.YES_OPTION);
         }
-        UpdateQuantityDB.updateQuantityDB(connection, productID, quantity);
-        // if (UpdateQuantityDB.updateQuantityDB(connection, productID, quantity)) {
-        // JOptionPane.showMessageDialog(null, "SuccessFully Updated");
-        // } else {
-        // JOptionPane.showMessageDialog(null, "Updating Failed");
-        // }
+        UpdateQuantityDB.updateQuantityDB(connection, productID, quantity, addToExisting);
+
     }
 }
