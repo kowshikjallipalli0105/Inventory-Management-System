@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
-
 public class UpdateQuantityDB {
     public static boolean updateQuantityDB(Connection connection, String productId, int quantityToAdd) {
         try {
