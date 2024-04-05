@@ -24,7 +24,9 @@ public class DatabaseConnection {
                         JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+
+            JOptionPane.showMessageDialog(null, "Connection Failed", "Oops!",
+                    JOptionPane.ERROR_MESSAGE);
         }
         return connection;
     }
@@ -33,8 +35,8 @@ public class DatabaseConnection {
         try {
             if (connection != null) {
                 connection.close();
-                JOptionPane.showMessageDialog(null, "Exited", "Successfully Closed",
-                        JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Not CLosed", "Oops!",
+                        JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
             e.printStackTrace();
